@@ -162,7 +162,7 @@ namespace BaketWishlist.Controllers
             }
             else
             {
-                wishlistViewModel = JsonConvert.DeserializeObject<List<WishListViewModel>>(Request.Cookies["basket"]);
+                wishlistViewModel = JsonConvert.DeserializeObject<List<WishListViewModel>>(Request.Cookies["wishList"]);
                 var existProduct = wishlistViewModel.Find(x => x.ProductId == product.Id);
                 if (existProduct == null)
                 {
