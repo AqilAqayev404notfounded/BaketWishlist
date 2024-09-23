@@ -24,7 +24,15 @@ namespace BaketWishlist.Controllers
             var products = await _appDbContext.Products.ToListAsync();
             Response.Cookies.Append("cookie", "cookieValue", new CookieOptions { Expires = DateTimeOffset.Now.AddMinutes(5) });
             Response.Cookies.Append("cookieWL", "cookieValueWL", new CookieOptions { Expires = DateTimeOffset.Now.AddMinutes(15) });
-            var model = new HeaderViewModel() { Categories = categories, Products = products };
+            List<WishListViewModel> wishListViewModels = new List<WishListViewModel>();
+
+
+            var wishlistByCookie = Request.Cookies["wishList"];
+
+            if (wishlistByCookie is { })
+                wishListViewModels = JsonConvert.DeserializeObject<List<WishListViewModel>>(wishlistByCookie) ?? new();
+
+            var model = new HeaderViewModel() { Categories = categories, Products = products ,WishList=wishListViewModels};
 
             return View(model);
         }
