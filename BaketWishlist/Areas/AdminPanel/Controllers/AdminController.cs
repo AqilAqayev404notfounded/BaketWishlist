@@ -2,14 +2,11 @@
 
 namespace BaketWishlist.Areas.AdminPanel.Controllers
 {
-
+    [Area("AdminPanel")]
     public class AdminController : Controller
     {
-        [Area("AdminPanel")]
-
-        public IActionResult Index()
-        {
-            return View();
-        }
+       
+        
+        
     }
 }

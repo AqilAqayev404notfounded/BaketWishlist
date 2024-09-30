@@ -615,7 +615,7 @@
                                                     <li class="product-box-contain">
                                                         <div class="drop-cart">
                                                             <a href="product-left-thumbnail.html" class="drop-image">
-                                                                <img src="../assets/images/vegetable/product/1.png"
+                                                                <img src="../assets/images/vegetable/product/@item.ImageUrl"
                                                                      class="blur-up lazyload" alt="">
                                                             </a>
 
@@ -663,7 +663,12 @@
                                         <ul class="user-box-name">
                                             <li class="product-box-contain">
                                                 <i></i>
-                                                <a href="login.html">Log In</a>
+                                                @if (User.Identity.IsAuthenticated)
+                                                {
+                                                    <a href="login.html">@User.Identity.Name</a>
+
+                                                }
+                                                <a asp-controller="Account" asp-action="Login">Log In</a>
                                             </li>
 
                                             <li class="product-box-contain">

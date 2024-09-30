@@ -1,12 +1,14 @@
 ﻿using BaketWishlist.DataAcsessLayer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace BaketWishlist.Areas.AdminPanel.Controllers
 {
-    
+
 
     [Area("AdminPanel")]
+    [Authorize]
 
     public class CategoryController : Controller
     {
@@ -16,7 +18,6 @@ namespace BaketWishlist.Areas.AdminPanel.Controllers
         {
             _dbContext = dbContext;
         }
-
         public async Task <IActionResult> Index()
         {
             var categories = await _dbContext.Categories.ToListAsync();

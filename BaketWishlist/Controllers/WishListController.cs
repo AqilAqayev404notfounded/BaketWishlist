@@ -15,7 +15,6 @@ namespace BaketWishlist.Controllers
             _appDbContext = appDbContext;
         }
 
-        //aye view bura baxir burdada model oturmemisen ordaki actionlari bura yazmaliyam? onun kimi birsey nece yeni gozle zulum
 
         public async Task<IActionResult> Index()
         {
